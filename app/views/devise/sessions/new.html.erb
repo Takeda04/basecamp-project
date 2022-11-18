@@ -1,0 +1,38 @@
+<body class="body-2">
+<div class="box">
+<img class ="img_g" src="https://s3.us-east-2.amazonaws.com/mission.control.production/fkcmkpga4d1daf4jbgm6grxh2u2x" alt="">
+</div> 
+<div class="container-2">
+
+<%= stylesheet_link_tag "sign" %>
+<h2 class="h2">Log in to Basecamp</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field"><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",placeholder: "Enter your email (login@gmail.com)" %>
+  </div>
+
+  <div class="field"><br />
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Enter your password (value)" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %> <br>
+
+  <div class="actions"> 
+  <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary" %>
+    <%= f.submit "Log in", data: {turbo: false}, class: "btn btn-primary" %>
+    
+    
+  </div>
+  
+<% end %>
+
+
+</div>
+<%= link_to "Forgot your password?", new_password_path(resource_name), class: "forget" %>
+</body>

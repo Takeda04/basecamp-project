@@ -1,0 +1,50 @@
+<%= stylesheet_link_tag "my" %>
+
+<body class="body-1">
+
+
+
+  <div class="container">
+    <% if current_user %>
+          <div class="row">
+      <% @projects.each do |project| %>
+          <% if current_user.id == project.user.id %>
+
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= project.name %></h5>
+      <p class="card-text"><%= project.description %></p>
+      <%= link_to "Show", project, class:"card-link btn btn-success" %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  </div>
+  </div>
+  <%= render 'projects/form' %>
+
+  <% else %>
+  <div>
+       
+
+  </div>
+  <div>
+      <h1 class="basecamp-text" style="margin-left:41%">Basecamp</h1>
+    <img style="width:200px; height:200px; float:left; margin-left: 40%;" src="https://s3.us-east-2.amazonaws.com/mission.control.production/fkcmkpga4d1daf4jbgm6grxh2u2x" alt="">
+  </div>
+  <h2 class="h2_text">Managing people and projects under pressure is tough enough. Unfortunately, lots of software makes it worse by over-complicating things. Basecamp’s different.</h2>
+  <p class="p_text" ></p>
+  
+      
+      <div class="button">
+        <%= link_to "Sign Up!", new_user_registration_path , class:"btn" %>
+
+        <%= link_to "Sign In!", new_user_session_path , class:"btn"%>
+      </div>
+  <% end %>
+
+</div>
+
+
+</body>
